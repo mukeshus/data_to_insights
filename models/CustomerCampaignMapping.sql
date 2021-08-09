@@ -1,6 +1,4 @@
-begin;
-
-USE Schema data_to_insights;
+{{ config(materialized='table') }}
 
 MERGE INTO customercampaignmapping tgt using(
 SELECT 
@@ -16,7 +14,6 @@ update set tgt.campaignid=src.campaign_id,tgt.customerid=src.customer_id,tgt.cam
 tgt.issuccess=src.is_success,tgt.createddate=src.modifieddate
 when not matched then
 insert (campaignid, customerid, campaigndateid, issuccess, createddate, createdby)
-values (src.campaign_id,src.customer_id,src.campaign_date,src.is_success,src.modifieddate,'fivetran');
+values (src.campaign_id,src.customer_id,src.campaign_date,src.is_success,src.modifieddate,'fivetran')
 
-/* END TRANSACTION*/
-commit;
+
