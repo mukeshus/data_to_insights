@@ -1,0 +1,13 @@
+# example profiles.yml file
+data_to_insights:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      host: xy96019.ap-south-1.aws.snowflakecomputing.com
+      user: datatoinsight
+      password: Welcome123
+      port: 443
+      dbname: data_to_insights    
+      schema: data_to_insights
+      threads: 4
