@@ -1,8 +1,7 @@
 {{
   config(
     materialized = 'incremental',
-    unique_key = 'mappingid',
-    merge_update_columns = ['campaign_id', 'customer_id']
+    merge_update_columns = ['campaignid', 'customerid']
   )
 }}
 
