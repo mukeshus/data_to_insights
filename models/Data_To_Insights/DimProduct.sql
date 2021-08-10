@@ -8,7 +8,7 @@
 {{
     config(
         materialized='incremental',
-		unique_key='id',
+		unique_key='ProductSourceKey',
 		incremental_strategy='merge'
     )
 }}
