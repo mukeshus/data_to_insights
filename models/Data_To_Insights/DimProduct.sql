@@ -8,8 +8,7 @@
  {{
     config(
         materialized='incremental',
-		unique_key='ID'
-		
+		unique_key='id'
     )
 }}
  

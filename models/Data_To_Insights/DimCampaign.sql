@@ -9,13 +9,13 @@
  {{
     config(
         materialized='incremental',
-		unique_key='ID'
-		
+		unique_key='CampaignID'
     )
 }}
 
 SELECT 
-    ROW_NUMBER() OVER (ORDER BY campaignname) AS CampaignID
+    ROW_NUMBER() OVER (ORDER BY CampaignID) AS CampaignID
+	,CampaignID as CampaignSourceKey
 	,campaignname
 	,description 
 	,productid

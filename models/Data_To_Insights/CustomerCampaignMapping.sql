@@ -18,7 +18,7 @@ ROW_NUMBER() OVER (ORDER BY campaign_id,customer_id) AS mappingid
 ,customer_id as customerid
 ,to_date(campaign_date,'mm/dd/yyyy') as campaigndateid
 ,is_success as issuccess
-,_FIVETRAN_SYNCED as createddate
+,to_timestamp(_FIVETRAN_SYNCED) as createddate
 ,'fivetran' as createdby
 from data_to_insights_raw.stg_customertocampaing
 
