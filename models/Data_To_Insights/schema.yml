@@ -23,7 +23,7 @@ models:
   - name: DimCampaign
     description: "Dimension Table to load Campaign data"
     columns:
-      - name: PRODUCTID
+      - name: CampaignID
         description: "The primary key for this table"
         tests:
           - unique

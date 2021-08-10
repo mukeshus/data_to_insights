@@ -15,15 +15,15 @@
  
  select 
        ROW_NUMBER() OVER (ORDER BY id) AS ProductID
-	   ,id AS ProductSourceKey
-	   ,productname,
-	   ,segment
-	   ,subcategory,
-	   ,category,
-	   ,Current_timestamp() AS CreatedDate,
-	   ,'fivetran' AS CreatedBy, 
-       ,_FIVETRAN_SYNCED AS ModifiedDate,
-       ,'fivetran' as ModifiedBy       
+	   , id AS ProductSourceKey
+	   , productname
+	   , segment
+	   , subcategory
+	   , category
+	   , Current_timestamp() AS CreatedDate
+	   , 'fivetran' AS CreatedBy
+       , _FIVETRAN_SYNCED AS ModifiedDate
+       , 'fivetran' as ModifiedBy
     from rds_raw_data_dbo.productmaster
 
 {% if is_incremental() %}
