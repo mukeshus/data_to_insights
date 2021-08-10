@@ -24,7 +24,7 @@ from data_to_insights_raw.stg_customertocampaing
 
 {% if is_incremental() %}
 
-  -- this filter will only be applied on an incremental run
-  WHERE _FIVETRAN_SYNCED > (select max(createddate) from  {{ this }})
+-- this filter will only be applied on an incremental run
+WHERE _FIVETRAN_SYNCED > (select max(createddate) from  {{ this }})
 
 {% endif %}

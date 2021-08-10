@@ -15,8 +15,8 @@
 }}
 
 SELECT 
-    ROW_NUMBER() OVER (ORDER BY campaignname) AS CampaignID
-	,campaignname
+    ROW_NUMBER() OVER (ORDER BY campaignname) AS CampaignID,
+	campaignname
 	,description 
 	,productid
 	,channel 
