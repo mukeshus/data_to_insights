@@ -5,10 +5,11 @@
     Try changing "table" to "view" below
 */
 
- {{
+{{
     config(
         materialized='incremental',
-		unique_key='id'
+		unique_key='id',
+		incremental_strategy='merge'
     )
 }}
  
