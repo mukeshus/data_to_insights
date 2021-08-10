@@ -14,7 +14,7 @@ models:
   - name: DimProduct
     description: "Dimension Table to load Customer data"
     columns:
-      - name: PRODUCTID
+      - name: ID
         description: "The primary key for this table"
         tests:
           - unique

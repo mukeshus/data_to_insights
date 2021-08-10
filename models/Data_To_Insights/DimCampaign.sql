@@ -16,16 +16,16 @@
 SELECT 
     ROW_NUMBER() OVER (ORDER BY CampaignID) AS CampaignID
 	,CampaignID as CampaignSourceKey
-	,campaignname
-	,description 
-	,productid
-	,channel 
+	,campaignname as campaignname
+	,description as description
+	,productid as productid
+	,channel as channel
 	,to_date(startdate) as startdate
 	,to_date(enddate) as enddate
-	,isactive
-	,cost
-	,_FIVETRAN_SYNCED
-	,'fivetran' 
+	,isactive as isactive
+	,cost as cost
+	,_FIVETRAN_SYNCED as modifieddate
+	,'fivetran' as modifiedby
 FROM 
     DATA_TO_INSIGHTS.RDS_RAW_DATA_DBO.campaignmaster
 
