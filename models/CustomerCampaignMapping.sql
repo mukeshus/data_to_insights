@@ -1,11 +1,13 @@
 {{
   config(
     materialized = 'incremental',
+	unique_key = 'mappingid'
     merge_update_columns = ['campaignid', 'customerid']
   )
 }}
 
-SELECT 
+SELECT
+ROW_NUMBER() OVER (ORDER BY id) AS mappingid, 
 campaign_id as campaignid,
 customer_id as customerid,
 to_date(campaign_date,'mm/dd/yyyy') as campaigndateid,
