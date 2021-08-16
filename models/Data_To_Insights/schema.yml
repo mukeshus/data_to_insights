@@ -37,3 +37,12 @@ models:
         tests:
           - unique
           - not_null
+
+  - name: FactSales
+    description: "Fact Sales Table to load the Sales Data"
+    columns:
+      - name: FACTSALESID
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null

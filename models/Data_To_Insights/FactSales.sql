@@ -39,7 +39,9 @@ FROM
 	LEFT OUTER JOIN DATA_TO_INSIGHTS.DATA_TO_INSIGHTS.DIMDATE ddship on ddship.date=to_date(sal.value_ship_date,'mm/dd/yyyy')
 	LEFT OUTER JOIN DATA_TO_INSIGHTS.DATA_TO_INSIGHTS.DIMLOCATION dl ON dl.region=sal.VALUE_REGION and dl.state=sal.VALUE_STATE 
 																	and dl.city=sal.VALUE_CITY and dl.country=sal.VALUE_COUNTRY
-	LEFT OUTER JOIN DATA_TO_INSIGHTS.DATA_TO_INSIGHTS.DIMPRODUCT dp on dp.productsourcekey=sal.value_product_id
+	LEFT OUTER JOIN DATA_TO_INSIGHTS.DATA_TO_INSIGHTS.DIMPRODUCT dp on dp.productsourcekey=sal.value_product_id 
+		and dp.productname=sal.VALUE_PRODUCT_NAME and dp.SEGMENT=sal.VALUE_SEGMENT and dp.subcategory=sal.VALUE_SUB_CATEGORY and dp.category=sal.VALUE_CATEGORY
+	
 
 {% if is_incremental() %}
 
