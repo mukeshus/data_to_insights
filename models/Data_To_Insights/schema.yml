@@ -14,7 +14,7 @@ models:
   - name: DimProduct
     description: "Dimension Table to load Customer data"
     columns:
-      - name: ID
+      - name: ProductSourceKey
         description: "The primary key for this table"
         tests:
           - unique
@@ -32,7 +32,7 @@ models:
   - name: CustomerCampaignMapping
     description: "Dimension Table to map Customer and Campaign data"
     columns:
-      - name: campaign_id
+      - name: mappingid
         description: "The primary key for this table"
         tests:
           - unique
