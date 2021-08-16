@@ -14,7 +14,7 @@
 }}
  
  select 
-       ROW_NUMBER() OVER (ORDER BY productid) AS ProductID
+       ROW_NUMBER() OVER (ORDER BY id) AS ProductID
 	   , productid AS ProductSourceKey
 	   , productname
 	   , segment
