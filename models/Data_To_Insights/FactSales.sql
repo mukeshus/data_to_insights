@@ -17,10 +17,10 @@ SELECT
 	ROW_NUMBER() OVER (ORDER BY sal.value_row_id) AS FACTSALESID
     , cust.customerid AS CUSTOMERID 
 	, camp.campaignid AS CAMPAIGNID 
-	, ddorder.date AS ORDERDATEID 
+	, ddorder.dateid AS ORDERDATEID 
 	, dl.locationid AS ORDERLOCATIONID 
 	, dp.productid AS PRODUCTID 
-	, ddship.date AS SHIPDATEID
+	, ddship.dateid AS SHIPDATEID
 	, SAL.VALUE_SHIP_MODE AS SHIPMODE
 	, SAL.VALUE_DISCOUNT AS DISCOUNT
 	, SAL.VALUE_PROFIT AS PROFIT
