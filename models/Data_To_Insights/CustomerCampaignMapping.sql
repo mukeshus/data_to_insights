@@ -20,7 +20,7 @@ ROW_NUMBER() OVER (ORDER BY campaign_id,customer_id) AS mappingid
 ,is_success as issuccess
 ,to_timestamp(_FIVETRAN_SYNCED) as createddate
 ,'fivetran' as createdby
-from data_to_insights_raw.stg_customertocampaing
+from data_to_insights_raw.stg_customertocampaign
 
 {% if is_incremental() %}
 
