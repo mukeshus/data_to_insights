@@ -15,8 +15,8 @@
 
 SELECT
 ROW_NUMBER() OVER (ORDER BY campaign_id,customer_id) AS mappingid 
-,cust.customerid as campaignid
-,camp.campaignid as customerid
+,camp.campaignid as campaignid
+,cust.customerid as customerid
 ,ddorder.dateid as campaigndateid
 ,is_success as issuccess
 ,to_timestamp(_FIVETRAN_SYNCED) as createddate
