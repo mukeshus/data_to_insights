@@ -14,13 +14,16 @@
 
 SELECT
 ROW_NUMBER() OVER (ORDER BY campaign_id,customer_id) AS mappingid 
-,campaign_id as campaignid
-,customer_id as customerid
-,to_date(campaign_date,'mm/dd/yyyy') as campaigndateid
+,cust.customerid as campaignid
+,camp.campaignid as customerid
+,ddorder.dateid as campaigndateid
 ,is_success as issuccess
 ,to_timestamp(_FIVETRAN_SYNCED) as createddate
 ,'fivetran' as createdby
-from data_to_insights_raw.stg_customertocampaign
+from data_to_insights_raw.stg_customertocampaign ctc
+LEFT OUTER JOIN DATA_TO_INSIGHTS.DATA_TO_INSIGHTS.DIMCUSTOMER cust on cust.CUSTOMERSOURCEKEY=ctc.CUSTOMER_ID
+LEFT OUTER JOIN DATA_TO_INSIGHTS.DATA_TO_INSIGHTS.DIMCAMPAIGN camp on camp.CAMPAIGNSOURCEKEY=ctc.CAMPAIGN_ID
+LEFT OUTER JOIN DATA_TO_INSIGHTS.DATA_TO_INSIGHTS.DIMDATE ddorder on ddorder.date=to_date(ctc.campaign_date,'mm/dd/yyyy')
 
 {% if is_incremental() %}
 
