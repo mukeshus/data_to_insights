@@ -29,7 +29,7 @@ SELECT
 	, SAL.VALUE_SHIPPING_COST AS SHIPPINGCOST
 	, TO_TIMESTAMP(SAL.VALUE_CREATED_DATE) AS CREATEDDATE 
 	, 'fivetran' AS  CREATEDBY 
-    , _FIVETRAN_SYNCED AS MODIFIEDDATE
+    , SAL._FIVETRAN_SYNCED AS MODIFIEDDATE
     , 'fivetran' AS  MODIFIEDBY
 FROM 
     DATA_TO_INSIGHTS.DATA_TO_INSIGHTS_RAW.STAGE_SALES_DATA SAL
@@ -46,7 +46,7 @@ FROM
 {% if is_incremental() %}
 
   -- this filter will only be applied on an incremental run
-  WHERE _FIVETRAN_SYNCED > (select max(MODIFIEDDATE) from  {{ this }})
+  WHERE SAL._FIVETRAN_SYNCED > (select max(MODIFIEDDATE) from  {{ this }})
 
 {% endif %}
 /*

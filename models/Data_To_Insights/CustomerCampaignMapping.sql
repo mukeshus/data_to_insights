@@ -29,6 +29,6 @@ LEFT OUTER JOIN DATA_TO_INSIGHTS.DATA_TO_INSIGHTS.DIMDATE ddorder on ddorder.dat
 {% if is_incremental() %}
 
 -- this filter will only be applied on an incremental run
-WHERE _FIVETRAN_SYNCED > (select max(createddate) from  {{ this }})
+WHERE ctc._FIVETRAN_SYNCED > (select max(createddate) from  {{ this }})
 
 {% endif %}
