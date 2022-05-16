@@ -19,7 +19,7 @@ ROW_NUMBER() OVER (ORDER BY campaign_id,customer_id) AS mappingid
 ,cust.customerid as customerid
 ,ddorder.dateid as campaigndateid
 ,is_success as issuccess
-,to_timestamp(_FIVETRAN_SYNCED) as createddate
+,to_timestamp(ctc._FIVETRAN_SYNCED) as createddate
 ,'fivetran' as createdby
 from data_to_insights_raw.stg_customertocampaign ctc
 LEFT OUTER JOIN DATA_TO_INSIGHTS.DATA_TO_INSIGHTS.DIMCUSTOMER cust on cust.CUSTOMERSOURCEKEY=ctc.CUSTOMER_ID
