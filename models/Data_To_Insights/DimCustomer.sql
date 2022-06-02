@@ -1,11 +1,3 @@
-{{
-    config(
-        materialized='incremental',
-		unique_key='CUSTOMERID',
-		incremental_strategy='merge'
-    )
-}}
-
 --Pull the Customer attributes from the template
 
 --customersourcekey
