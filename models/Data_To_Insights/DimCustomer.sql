@@ -89,6 +89,15 @@
 {% set cust_tablename_list = [] %}
 {% endif %}
 
+
+{{
+    config(
+        materialized='incremental',
+		unique_key='{{customersourcekey}}',
+		incremental_strategy='merge'
+    )
+}}
+
     SELECT 
     {% for customersourcekey in results_list %}
 	ROW_NUMBER() OVER (ORDER BY {{customersourcekey}}) AS CUSTOMERID
