@@ -90,7 +90,7 @@
     )
 }}
 
-    SELECT 
+    SELECT 1 as CustomerID,
     {% for customersourcekey in results_list %}
 	
     {{customersourcekey}} AS CUSTOMERSOURCEKEY 
