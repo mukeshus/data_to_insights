@@ -4,45 +4,20 @@ version: 2
 models:
   - name: DimCustomer
     description: "Dimension Table to load Customer data"
-    columns:
-      - name: CUSTOMERID
-        description: "The primary key for this table"
-        tests:
-          - unique
-          - not_null
+   
 
   - name: DimProduct
     description: "Dimension Table to load Customer data"
-    columns:
-      - name: ProductID
-        description: "The primary key for this table"
-        tests:
-          - unique
-          - not_null
+
    
   - name: DimCampaign
     description: "Dimension Table to load Campaign data"
-    columns:
-      - name: CampaignID
-        description: "The primary key for this table"
-        tests:
-          - unique
-          - not_null
+
 
   - name: CustomerCampaignMapping
     description: "Dimension Table to map Customer and Campaign data"
-    columns:
-      - name: mappingid
-        description: "The primary key for this table"
-        tests:
-          - unique
-          - not_null
+
 
   - name: FactSales
     description: "Fact Sales Table to load the Sales Data"
-    columns:
-      - name: FACTSALESID
-        description: "The primary key for this table"
-        tests:
-          - unique
-          - not_null
+
