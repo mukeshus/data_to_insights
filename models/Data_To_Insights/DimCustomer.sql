@@ -92,8 +92,8 @@
 
     SELECT 
     {% for customersourcekey in results_list %}
-	ROW_NUMBER() OVER (ORDER BY {{customersourcekey}}) AS CUSTOMERID
-    ,{{customersourcekey}} AS CUSTOMERSOURCEKEY 
+	
+    {{customersourcekey}} AS CUSTOMERSOURCEKEY 
     {% endfor %}
 	{% for firstname in firstname_list %}
 	{% for lastname in lastname_list %}
