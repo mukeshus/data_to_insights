@@ -14,7 +14,7 @@
 }}
  
  select 
-      
+      productid as PRODUCTID ,
 	    productid AS ProductSourceKey
 	   , productname
 	   , segment

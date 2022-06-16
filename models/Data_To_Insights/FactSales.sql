@@ -14,7 +14,7 @@
 }}
 
 SELECT 
-	
+	1 AS FACTSALESID,
      cust.customerid AS CUSTOMERID 
 	, camp.campaignid AS CAMPAIGNID 
 	, ddorder.dateid AS ORDERDATEID 

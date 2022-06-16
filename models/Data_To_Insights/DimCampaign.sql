@@ -105,7 +105,7 @@
 SELECT 
 
     {% for campaignsourcekey in campaignsourcekey_list %}
-
+{{campaignsourcekey}} AS CAMPAIGNID,
     {{campaignsourcekey}} AS CampaignSourceKey 
     {% endfor %}
     {% for campaignname in campaignname_list %}
