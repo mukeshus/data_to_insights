@@ -97,10 +97,7 @@
  {{
     config(
         materialized='incremental',
- {% for campaignsourcekey in campaignsourcekey_list %}
-		unique_key='{{campaignsourcekey}}',
-    {% endfor %}
-	incremental_strategy='merge'
+		unique_key='campaignsourcekey'
     )
 }}
 

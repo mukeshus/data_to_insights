@@ -85,9 +85,7 @@
 {{
     config(
         materialized='incremental',
-{% for customersourcekey in results_list %}
-		unique_key='{{customersourcekey}}',
-{% endfor %}
+		unique_key='customersourcekey',
 		incremental_strategy='merge'
     )
 }}
