@@ -1,10 +1,5 @@
 
- {{
-    config(
-        materialized='incremental',
-		unique_key='CampaignID'
-    )
-}}
+
 
 --Pull the Campaign attributes from the template
 
@@ -99,12 +94,19 @@
 {% set tablename_list = [] %}
 {% endif %}
 
+ {{
+    config(
+        materialized='incremental',
+		unique_key='{{campaignsourcekey}}'
+    )
+}}
+
 
 SELECT 
 
     {% for campaignsourcekey in campaignsourcekey_list %}
-	ROW_NUMBER() OVER (ORDER BY {{campaignsourcekey}}) AS CampaignID
-    ,{{campaignsourcekey}} AS CampaignSourceKey 
+
+    {{campaignsourcekey}} AS CampaignSourceKey 
     {% endfor %}
     {% for campaignname in campaignname_list %}
 	,{{campaignname}} as campaignname

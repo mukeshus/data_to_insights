@@ -8,14 +8,14 @@
 {{
     config(
         materialized='incremental',
-		unique_key='FACTSALESID',
+		
 		merge_update_columns = ['campaignid', 'customerid','ORDERDATEID','ORDERLOCATIONID','PRODUCTID','SHIPDATEID']
     )
 }}
 
 SELECT 
-	ROW_NUMBER() OVER (ORDER BY sal.value_row_id) AS FACTSALESID
-    , cust.customerid AS CUSTOMERID 
+	
+     cust.customerid AS CUSTOMERID 
 	, camp.campaignid AS CAMPAIGNID 
 	, ddorder.dateid AS ORDERDATEID 
 	, dl.locationid AS ORDERLOCATIONID 

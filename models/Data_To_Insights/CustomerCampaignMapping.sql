@@ -8,14 +8,13 @@
 {{
   config(
     materialized = 'incremental',
-	unique_key = 'mappingid',
+	
     merge_update_columns = ['campaignid', 'customerid']
   )
 }}
 
 SELECT
-ROW_NUMBER() OVER (ORDER BY campaign_id,customer_id) AS mappingid 
-,camp.campaignid as campaignid
+camp.campaignid as campaignid
 ,cust.customerid as customerid
 ,ddorder.dateid as campaigndateid
 ,is_success as issuccess
