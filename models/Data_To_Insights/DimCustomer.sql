@@ -90,7 +90,7 @@
     )
 }}
 
-    SELECT 1 as CUSTOMERID,
+    SELECT --1 as CUSTOMERID,
     {% for customersourcekey in results_list %}
 	 
     {{customersourcekey}} AS CUSTOMERSOURCEKEY 
