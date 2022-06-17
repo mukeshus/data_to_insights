@@ -85,12 +85,12 @@
 {{
     config(
         materialized='incremental',
-		unique_key='customersourcekey',
+		unique_key='CUSTOMERID',
 		incremental_strategy='merge'
     )
 }}
 
-    SELECT ID as CUSTOMERID,
+    SELECT DimCustomer_SK.nextval as CUSTOMERID,
     {% for customersourcekey in results_list %}
 	 
     {{customersourcekey}} AS CUSTOMERSOURCEKEY 
@@ -123,11 +123,5 @@ FROM
     {% for cust_tablename in cust_tablename_list %}
     DATA_TO_INSIGHTS.RDS_RAW_DATA_DBO.{{cust_tablename}} S
 	{% endfor %}
-  WHERE  Customersourcekey = 'AAA2'
+  
 
---{% if is_incremental() %}
-
-  -- this filter will only be applied on an incremental run
- -- WHERE _FIVETRAN_SYNCED > (select max(MODIFIEDDATE) from  {{ this }})
-
---{% endif %}
