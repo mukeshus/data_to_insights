@@ -90,9 +90,9 @@
     )
 }}
 
-    SELECT 
+    SELECT 1 as CUSTOMERID,
     {% for customersourcekey in results_list %}
-	 {{customersourcekey}} AS CUSTOMERID,
+	 
     {{customersourcekey}} AS CUSTOMERSOURCEKEY 
     {% endfor %}
 	{% for firstname in firstname_list %}
