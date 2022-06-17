@@ -127,7 +127,7 @@ FROM
 
 {% if is_incremental() %}
 
-  this filter will only be applied on an incremental run
+ -- this filter will only be applied on an incremental run
   WHERE _FIVETRAN_SYNCED > (select max(MODIFIEDDATE) from  {{ this }})
 
 {% endif %}
