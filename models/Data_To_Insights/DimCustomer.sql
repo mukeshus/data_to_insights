@@ -90,7 +90,7 @@
     )
 }}
 
-    SELECT NULL as CUSTOMERID,
+    SELECT --1 as CUSTOMERID,
     {% for customersourcekey in results_list %}
 	 
     {{customersourcekey}} AS CUSTOMERSOURCEKEY 
@@ -123,10 +123,11 @@ FROM
     {% for cust_tablename in cust_tablename_list %}
     DATA_TO_INSIGHTS.RDS_RAW_DATA_DBO.{{cust_tablename}} S
 	{% endfor %}
+  WHERE  Customersourcekey = 'AAA2'
 
-{% if is_incremental() %}
+--{% if is_incremental() %}
 
   -- this filter will only be applied on an incremental run
-  WHERE _FIVETRAN_SYNCED > (select max(MODIFIEDDATE) from  {{ this }})
+ -- WHERE _FIVETRAN_SYNCED > (select max(MODIFIEDDATE) from  {{ this }})
 
-{% endif %}
+--{% endif %}
