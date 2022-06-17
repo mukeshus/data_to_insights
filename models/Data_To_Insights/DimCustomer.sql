@@ -90,7 +90,7 @@
     )
 }}
 
-    SELECT NULL as CUSTOMERID,
+    SELECT --NULL as CUSTOMERID,
     {% for customersourcekey in results_list %}
 	 
     {{customersourcekey}} AS CUSTOMERSOURCEKEY 
