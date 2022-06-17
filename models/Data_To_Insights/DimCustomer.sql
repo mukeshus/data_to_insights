@@ -85,7 +85,7 @@
 {{
     config(
         materialized='incremental',
-		unique_key='CUSTOMERID',
+		unique_key='CUSTOMERSOURCEKEY',
 		incremental_strategy='merge'
     )
 }}
