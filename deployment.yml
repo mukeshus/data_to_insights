@@ -11,4 +11,5 @@ jobs:
    schedule: '0 */12 * * *' # The example will run every 12 hrs, 12*60=720 minutes. Note that the cron string is quoted as otherwise it will be treated as invalid alias node (see https://yaml.org/spec/1.2/spec.html#*%20alias// for details)
    steps:
      - name: run models # Give each step in your job a name. This will enable you to track the steps in the logs.
+       command: dbt clean
        command: dbt run # Enter the dbt command that should run in this step. This example will run all your models. For a list of available commands visit https://docs.getdbt.com/reference/model-selection-syntax/.
