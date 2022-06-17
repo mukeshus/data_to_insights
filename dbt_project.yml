@@ -3,13 +3,13 @@
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
 # name: 'my_new_project'
-name: 'data_to_insights_latest'
+name: 'data_to_insights'
 version: '1.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
 # profile: 'default'
-profile: 'data_to_insights_latest'
+profile: 'data_to_insights'
 
 # These configurations specify where dbt should look for different types of files.
 # The `source-paths` config, for example, states that models in this project can be
@@ -34,7 +34,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  data_to_insights_latest:
+  data_to_insights:
       # Applies to all files under models/example/
       DimCustomer:
           materialized: incremental
