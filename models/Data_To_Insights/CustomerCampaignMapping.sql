@@ -14,7 +14,7 @@
 }}
 
 SELECT
-1 as MAPPINGID,
+CUSTOMERCAMPAIGNMAPPING_SK.nextval as MAPPINGID,
 camp.campaignid as campaignid
 ,cust.customerid as customerid
 ,ddorder.dateid as campaigndateid
