@@ -14,7 +14,7 @@
 }}
  
  select 
-      productid as PRODUCTID ,
+      DIMPRODUCT_SK.NEXTVAL as PRODUCTID ,
 	    productid AS ProductSourceKey
 	   , productname
 	   , segment

@@ -14,7 +14,7 @@
 }}
 
 SELECT 
-	
+	FACTSALES_SK.nextval AS FACTSALESID,
      cust.customerid AS CUSTOMERID 
 	, camp.campaignid AS CAMPAIGNID 
 	, ddorder.dateid AS ORDERDATEID 
